@@ -42,7 +42,6 @@ export const Curd = (options: ICurd): ClassDecorator => {
     );
 
     controllerPropertys.map(key => {
-      console.log('object', key, methods[key]);
       if (key !== 'constructor' && methods[key]) {
         Reflect.defineProperty(target.prototype, key, {
           value: curdController.prototype[key],

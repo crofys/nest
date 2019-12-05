@@ -2,7 +2,7 @@
  * @Description: post.service
  * @Author: 徐长剑
  * @Date: 2019-11-28 10:29:39
- * @LastEditTime: 2019-11-28 18:08:30
+ * @LastEditTime: 2019-12-05 18:01:07
  * @LastEditors: 徐长剑
  */
 import { Injectable, HttpException } from '@nestjs/common';
@@ -71,4 +71,3 @@ export class PostService extends CurdService<Post> {
   // }
 }
 
-console.log(Reflect.ownKeys(PostService.prototype), '====++PostService++'); // 'A'

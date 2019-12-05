@@ -15,11 +15,20 @@ import { IResult } from '../../interfaces/result.interface';
 import { Curd } from '../../utils/curd/index';
 
 // type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
-console.log(PostEntity, 'PostEntity');
 @Controller('post')
 @ApiUseTags('文章')
 export class PostController {
   constructor(@Inject(PostService) private readonly postService: PostService) {}
+  @Post('webhook')
+  @ApiOperation({ title: 'webhook' })
+  async webhook(@Body() body): Promise<IResult<any>> {
+    const res = body;
+    return {
+      s: true,
+      m: '请求成功',
+      d: res,
+    };
+  }
   @Get()
   @ApiOperation({ title: '文章列表' })
   async find(): Promise<IResult<any>> {
